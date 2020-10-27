@@ -5,7 +5,7 @@ const router = express.Router();
 const Books = require('../models/book');
 const Readers = require('../models/readers');
 const Loans = require('../models/loan');
-const Sequelize = require('Sequelize');
+const Sequelize=require('sequelize');
 
 
 // const rootDir = require('../util/path');
