@@ -1,16 +1,25 @@
 const util = require('util');
-const sequelize = require('../util/database');
+//const sequelize = require('../util/database');
 const express = require('express');
 const router = express.Router();
 const Books = require('../models/book');
 const Readers = require('../models/readers');
 const Loans = require('../models/loan');
-
+const Sequelize = require('Sequelize');
 
 
 // const rootDir = require('../util/path');
 const PATH= require('path');
 
+let sequelize;
+if (process.env.NODE_ENV === 'production'){
+     //sequelize = new Sequelize('test',process.env.RDS_USERNAME,process.env.RDS_PASSWORD,{dialect:'postgres', host:process.env.RDS_HOSTNAME });
+     sequelize = new Sequelize('test','postgres','Aa123456',{dialect:'postgres', host:'aatcgcgyxwa8a8.cywto99mqnpk.us-east-1.rds.amazonaws.com'});
+}
+//else connect via localhost
+else 
+ sequelize = new Sequelize('test','postgres','Aa123456',{dialect:'postgres', host:'aatcgcgyxwa8a8.cywto99mqnpk.us-east-1.rds.amazonaws.com'});
+     //sequelize = new Sequelize('intellident','postgres','Aa123456',{dialect:'postgres', host:'localhost'});
 
 // OrderItem.associate(Order);
 // OrderItem.belongsTo(Order);
