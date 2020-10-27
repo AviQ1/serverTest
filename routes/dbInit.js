@@ -1,33 +1,36 @@
 const util = require('util');
-//const sequelize = require('../util/database');
+const sequelize = require('../util/database');
 const express = require('express');
 const router = express.Router();
 const Books = require('../models/book');
 const Readers = require('../models/readers');
 const Loans = require('../models/loan');
-const Sequelize=require('sequelize');
+//const Sequelize=require('sequelize');
 
 
 // const rootDir = require('../util/path');
 const PATH= require('path');
 
-let sequelize;
-if (process.env.NODE_ENV === 'production'){
-     //sequelize = new Sequelize('test',process.env.RDS_USERNAME,process.env.RDS_PASSWORD,{dialect:'postgres', host:process.env.RDS_HOSTNAME });
-     sequelize = new Sequelize('test','postgres','Aa123456',{dialect:'postgres', host:'aatcgcgyxwa8a8.cywto99mqnpk.us-east-1.rds.amazonaws.com'});
-}
-//else connect via localhost
-else 
- sequelize = new Sequelize('test','postgres','Aa123456',{dialect:'postgres', host:'aatcgcgyxwa8a8.cywto99mqnpk.us-east-1.rds.amazonaws.com'});
-     //sequelize = new Sequelize('intellident','postgres','Aa123456',{dialect:'postgres', host:'localhost'});
+// let sequelize;
+// if (process.env.NODE_ENV === 'production'){
+//      //sequelize = new Sequelize('test',process.env.RDS_USERNAME,process.env.RDS_PASSWORD,{dialect:'postgres', host:process.env.RDS_HOSTNAME });
+//      sequelize = new Sequelize('test_db','postgres','Aa123456',{dialect:'postgres', host:'aatcgcgyxwa8a8.cywto99mqnpk.us-east-1.rds.amazonaws.com'});
+// }
+// //else connect via localhost
+// else 
+//  sequelize = new Sequelize('test_db','postgres','Aa123456',{dialect:'postgres', host:'aatcgcgyxwa8a8.cywto99mqnpk.us-east-1.rds.amazonaws.com'});
+//      //sequelize = new Sequelize('intellident','postgres','Aa123456',{dialect:'postgres', host:'localhost'});
 
 // OrderItem.associate(Order);
 // OrderItem.belongsTo(Order);
 // OrderSubTypesMD.belongsTo(OrderTypesMD);
 //TODO: add order item and header constraint and check if key changes
 router.get('/createTables', (req,response, next) =>{
+  
+  //Readers.belongsToMany(Books, {through: 'loans'});
+//Books.belongsToMany(Readers, {through: 'loans'});
     console.log('goind to create tables');
-    sequelize.sync({ force: false }).then( result =>{ ///chango to alter:true in order to allow change tables
+    sequelize.sync({ force: true }).then( result =>{ ///chango to alter:true in order to allow change tables
         console.log ('tables created successfully');
         response.status(201).end('tables created successfully');
         //console.log(result);o

@@ -1,11 +1,15 @@
 const bodyParser = require('body-parser');
 const express = require('express');
-//const sequelize = require('../serverTest/util/database');
+const sequelize = require('../serverTest/util/database');
 //const Sequelize=require('sequelize');
 const path = require('path');
 const firstRoute = require('./routes/firstRoute');
 const errorRoute = require('./routes/notFound');
 const dbInitRoute = require('./routes/dbInit');
+const dataRoute = require('./routes/getData');
+const Books = require('./models/book');
+const Readers = require('./models/readers');
+const Loans = require('./models/loan');
 
 
 //set port
@@ -22,6 +26,7 @@ app.use((req,res,next) =>{
     next();
   });
 
+  app.use('/data', dataRoute);
   app.use('/init', dbInitRoute);
   app.use(firstRoute);
   app.use('*',errorRoute);

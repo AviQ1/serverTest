@@ -2,8 +2,7 @@ const { Sequelize, Model, DataTypes } = require('sequelize');
 const sequelize = require('../util/database');
 const Readers = require('./readers');
 const Books = require('./book');
-class Loans extends Model {}
-Loans.init({
+const Loans = sequelize.define('loans', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -11,8 +10,11 @@ Loans.init({
         allowNull: false
       },
     loanDate: DataTypes.DATE 
-}, { sequelize, modelName: 'loan' });
+}, );
 Readers.belongsToMany(Books, {through: 'loans'});
 Books.belongsToMany(Readers, {through: 'loans'});
-
+Books.hasMany(Loans);
+Readers.hasMany(Loans);
+Loans.belongsTo(Books);
+Loans.belongsTo(Readers);
 module.exports = Loans;

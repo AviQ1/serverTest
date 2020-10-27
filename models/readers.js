@@ -9,7 +9,8 @@ Readers.init({
   lastName: Sequelize.STRING,
   phone: Sequelize.STRING,
   email: Sequelize.STRING
-}, { sequelize, modelName: 'reader' });
+}, { sequelize, modelName: 'readers' });
+
 
 
 module.exports = Readers;
