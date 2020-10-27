@@ -17,6 +17,7 @@
   "bugs": {
     "url": "https://github.com/AviQ1/serverTest/issues"
   },
+  "engines": { "node" : "12.16.2" },
   "homepage": "https://github.com/AviQ1/serverTest#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
