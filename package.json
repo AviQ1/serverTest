@@ -1,0 +1,35 @@
+{
+  "name": "servertest",
+  "version": "1.0.0",
+  "description": "test for development",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "start:dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AviQ1/serverTest.git"
+  },
+  "author": "Avi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AviQ1/serverTest/issues"
+  },
+  "homepage": "https://github.com/AviQ1/serverTest#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "lodash.clonedeep": "^4.5.0",
+    "moment": "^2.27.0",
+    "pg": "^8.2.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.7",
+    "umzug": "^2.3.0",
+    "xlsx": "^0.16.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
