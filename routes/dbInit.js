@@ -1,7 +1,8 @@
-const util = require('util');
-const sequelize = require('../util/database');
+//const util = require('util');
 const express = require('express');
 const router = express.Router();
+const sequelize = require('../util/database');
+
 const Books = require('../models/book');
 const Readers = require('../models/readers');
 const Loans = require('../models/loan');
@@ -9,7 +10,7 @@ const Loans = require('../models/loan');
 
 
 // const rootDir = require('../util/path');
-const PATH= require('path');
+//const PATH= require('path');
 
 // let sequelize;
 // if (process.env.NODE_ENV === 'production'){
@@ -39,10 +40,7 @@ router.get('/createTables', (req,response, next) =>{
 });
 
 
-//sync one table according to user input
-router.get('/syncOneTable', (req, response, next) =>{
 
-})
 
 // router.get('/syncStagesMd', (req, res, next) =>{
 

@@ -1,5 +1,5 @@
 
-const { Sequelize } = require('sequelize');
+const Sequelize = require('sequelize');
 
 
 //if in production mode database connection string is from enviroment varaibles

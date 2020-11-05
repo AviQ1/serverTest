@@ -1,11 +1,11 @@
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const sequelize = require('../util/database');
-const Readers = require('./readers');
+//const Readers = require('./readers');
 class Books extends Model {}
 Books.init({
-  title: Sequelize.STRING,
-  authorFirstName: Sequelize.STRING,
-  authorLastName: Sequelize.STRING
+  title: DataTypes.STRING,
+  authorFirstName: DataTypes.STRING,
+  authorLastName: DataTypes.STRING
 }, { sequelize, modelName: 'books' });
 
 
