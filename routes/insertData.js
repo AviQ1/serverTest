@@ -4,6 +4,8 @@ const Books = require('../models/book');
 const Loans = require('../models/loan');
 const Readers = require('../models/readers');
 
+
+
 router.post('/addBook',  (req,res, next) =>{
 
     if (req.body === undefined)
@@ -13,19 +15,19 @@ router.post('/addBook',  (req,res, next) =>{
   else{
       let rate = parseInt(req.body.rate);
       
-    sequelize.transaction( (t) => {
+    
       return Books.create({
     title: req.body.title,
     authorFirstName: req.body.authorFirstName,
     authorLastName: req.body.authorLastName,
     rate: rate
-      }, {transaction: t}).then( (userEnt) =>{
+      }).then( (userEnt) =>{
         res.status(200).end('Book Created');
       })
       .catch( (err) => {
         res.status(500).end('failed to create book ' + err);
     });
-  });
+ 
 }
   });
 
