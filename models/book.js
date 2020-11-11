@@ -5,7 +5,8 @@ class Books extends Model {}
 Books.init({
   title: DataTypes.STRING,
   authorFirstName: DataTypes.STRING,
-  authorLastName: DataTypes.STRING
+  authorLastName: DataTypes.STRING,
+  rate: DataTypes.INTEGER
 }, { sequelize, modelName: 'books' });
 
 
