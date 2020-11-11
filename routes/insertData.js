@@ -4,7 +4,7 @@ const Books = require('../models/book');
 const Loans = require('../models/loan');
 const Readers = require('../models/readers');
 
-router.get('/addBook',  (req,res, next) =>{
+router.post('/addBook',  (req,res, next) =>{
 
     if (req.body === undefined)
     res.status(500).end('request has no json body');
