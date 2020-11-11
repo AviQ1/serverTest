@@ -30,7 +30,7 @@ app.use((req,res,next) =>{
 
   app.use('/data', dataRoute);
   app.use('/init', dbInitRoute);
-  app.use('/insert')
+  app.use('/insert',insertRoute);
   app.use(firstRoute);
   app.use('*',errorRoute);
 
